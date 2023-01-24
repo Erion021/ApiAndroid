@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import zubkov.vadim.apiandroid.login.data.network.response.LoginResponse
 
 interface LoginClient {
-    @GET("/signin")
+    @GET("/usuarios")
     suspend fun doLogin(): Response<LoginResponse>
 }

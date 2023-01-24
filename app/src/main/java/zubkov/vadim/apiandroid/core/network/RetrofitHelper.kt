@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
     fun getRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl("http://localhost:8080/")
+        return Retrofit.Builder().baseUrl("http://192.168.1.189:8080/")
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 }

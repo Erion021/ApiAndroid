@@ -10,8 +10,10 @@ import zubkov.vadim.apiandroid.register.RegisterScreen
 
 @Composable
 fun Navigation() {
+    val loginViewModel = LoginViewModel()
+    loginViewModel.devolverLista()
     val navigationController = rememberNavController()
-    NavHost(navController = navigationController, startDestination = Routes.Login.route) {
+    NavHost(navController = navigationController, startDestination = Routes.Register.route) {
         composable(route = Routes.Login.route) {
             LoginScreen(
                 navigationController = navigationController,
@@ -19,7 +21,10 @@ fun Navigation() {
             )
         }
         composable(route = Routes.Register.route) {
-            RegisterScreen()
+            RegisterScreen(
+                navigationController = navigationController,
+                loginViewModel = loginViewModel
+            )
         }
     }
 }
