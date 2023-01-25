@@ -7,23 +7,25 @@ import androidx.navigation.compose.rememberNavController
 import zubkov.vadim.apiandroid.login.ui.LoginScreen
 import zubkov.vadim.apiandroid.login.ui.LoginViewModel
 import zubkov.vadim.apiandroid.register.RegisterScreen
+import zubkov.vadim.monkeyfilm.home.ui.HomeScreen
+import zubkov.vadim.monkeyfilm.home.ui.HomeViewModel
 
 @Composable
 fun Navigation() {
-    val loginViewModel = LoginViewModel()
-    loginViewModel.devolverLista()
+    val homeViewModel = HomeViewModel()
+    homeViewModel.devolverLista()
     val navigationController = rememberNavController()
     NavHost(navController = navigationController, startDestination = Routes.Register.route) {
-        composable(route = Routes.Login.route) {
-            LoginScreen(
+        composable(route = Routes.Home.route) {
+            HomeScreen(
                 navigationController = navigationController,
-                loginViewModel = LoginViewModel()
+                homeViewModel = homeViewModel
             )
         }
         composable(route = Routes.Register.route) {
             RegisterScreen(
                 navigationController = navigationController,
-                loginViewModel = loginViewModel
+                loginViewModel = homeViewModel
             )
         }
     }

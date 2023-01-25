@@ -1,11 +1,20 @@
 package zubkov.vadim.apiandroid.core.network
 
+import java.util.concurrent.TimeUnit
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
+    private val okHttpClient = OkHttpClient.Builder()
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
+        .build()
+
     fun getRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl("http://192.168.1.189:8080/")
+        return Retrofit.Builder().baseUrl("http://10.0.2.2:8080")
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 }

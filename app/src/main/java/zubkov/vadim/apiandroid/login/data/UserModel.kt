@@ -2,7 +2,7 @@ package zubkov.vadim.apiandroid.login.data
 
 import androidx.annotation.DrawableRes
 
-data class UserModel(
+/*data class UserModel(
     var id: String,
     var nombre: String,
     var apellidos: String,
@@ -14,9 +14,9 @@ data class UserModel(
     var foto: String,
     var web: String,
     var rol : String
-)
+)*/
 
-/*data class UserModel(
+data class UserModel(
     var id: Int,
     var title: String,
     var description: String,
@@ -29,4 +29,4 @@ data class UserModel(
     fun likes(){
         favorito = !favorito
     }
-}*/
+}

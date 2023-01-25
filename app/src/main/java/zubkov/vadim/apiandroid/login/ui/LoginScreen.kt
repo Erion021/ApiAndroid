@@ -51,7 +51,7 @@ fun LoginScreen(
         items(loginViewModel.listaUsers.value!!.size) { index ->
             Log.i("Hola","Entro")
             val film = loginViewModel.listaUsers.value!![index]
-            Text("${film.nombre}")
+            Text("${film.title}")
         }
     }
 }
