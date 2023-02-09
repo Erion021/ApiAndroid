@@ -3,6 +3,7 @@ package zubkov.vadim.apiandroid
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -10,10 +11,16 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
+import zubkov.vadim.apiandroid.login.ui.UserViewModel
 import zubkov.vadim.apiandroid.nav.Navigation
 import zubkov.vadim.apiandroid.ui.theme.ApiAndroidTheme
+import javax.inject.Singleton
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val userViewModel : UserViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Navigation()
+                    Navigation(userViewModel)
                 }
             }
         }
@@ -39,6 +46,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ApiAndroidTheme {
-        Navigation()
+        //Navigation()
     }
 }

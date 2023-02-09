@@ -79,7 +79,7 @@ fun ExpandableCard(
                     .padding(10.dp)
 
                 ){
-                    Image(
+                    zubkov.vadim.apiandroid.login.ui.Image(
                         painterResource(imagenes),
                         contentDescription = null,
                         modifier = Modifier
@@ -132,7 +132,7 @@ fun ExpandableCard(
                 }
             }
             if (expand) {
-                Image(
+                zubkov.vadim.apiandroid.login.ui.Image(
                     painterResource(imagenes),
                     contentDescription = null
                 )
